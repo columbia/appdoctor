@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>AndChecker BugViewer</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="site.js"></script>
+  </head>
+  <body>
+    <div id="all-wrapper">
+      <div id="all">
+        <div id="log-list-container">
+          <table height="100%" width="100%">
+            <tr height="0%">
+              <td style="padding: 6px;">Log List <a id="refresh-log-list" href="#">Refresh</a></td>
+            </tr><tr height="100%">
+              <td><div id="log-list-wrapper">
+                  <div class="loading-indicator" id="log-list-loading-indicator"></div>
+                  <div id="log-list"></div>
+              </div></td>
+            </tr>
+          </table>
+        </div>
+        <div id="bug-list-container">
+          <table height="100%" width="100%">
+            <tr height="0%">
+              <td style="padding: 6px;">Bug List: <span id="bug-list-log-name"></span></td>
+            </tr><tr height="100%">
+              <td><div id="bug-list-wrapper">
+                  <div class="loading-indicator" id="bug-list-loading-indicator"></div>
+                  <div id="bug-list"></div>
+              </div></td>
+            </tr>
+          </table>
+        </div>
+        <div id="bug-container">
+          <table height="100%" width="100%">
+            <tr height="0%">
+              <td><span id="bug-title"></span> - <a href="#" id="bug-reproduce-cmd">Reproduce</a></td>
+            </tr><tr height="100%">
+              <td><div id="bug-wrapper">
+                  <div class="loading-indicator" id="bug-loading-indicator"></div>
+                  <div id="bug"></div>
+              </div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

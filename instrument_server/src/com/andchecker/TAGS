@@ -1,0 +1,1098 @@
+
+ACICommand.java,1293
+public abstract class ACICommand 6,97
+    protected ACInstrumentation mInst;ACICommand.mInst8,152
+    protected String            mCookie;ACICommand.mCookie9,191
+    protected StringTokenizer   mTokens;ACICommand.mTokens10,232
+    protected StringBuilder     mResult;ACICommand.mResult11,273
+    protected boolean           mError;ACICommand.mError12,314
+    public void init(ACICommand.init14,355
+    public boolean isFromUser(ACICommand.isFromUser22,607
+    public String getResultString(ACICommand.getResultString27,845
+    final public void run(ACICommand.run28,912
+    public boolean isError(ACICommand.isError56,1671
+    private static HashMap<ACICommand.HashMap60,1793
+    private static HashMap<String, Class<?> > mCommands;ACICommand.mCommands60,1793
+    final public static ACICommand buildCommand(ACICommand.buildCommand63,1912
+    final private static boolean registerCommand(ACICommand.registerCommand90,2843
+    final public boolean registerSelf(ACICommand.registerSelf104,3254
+class ACICmdUnknown 127,3982
+    public String getName(ACICmdUnknown.getName129,4023
+    public boolean isUISync(ACICmdUnknown.isUISync130,4075
+    public boolean isInternal(ACICmdUnknown.isInternal131,4123
+    public void execute(ACICmdUnknown.execute132,4172
+
+ACIContextWrapper.java,222
+class ACIContextWrapper 7,137
+    ACInstrumentation mInst;ACIContextWrapper.mInst9,186
+    Activity mActivity;ACIContextWrapper.mActivity10,215
+    public ACIContextWrapper(ACIContextWrapper.ACIContextWrapper12,244
+
+ACIException.java,926
+public class ACIException 7,115
+	private static final long serialVersionUID ACIException.serialVersionUID8,161
+	public static final int LEVEL_INTERNAL ACIException.LEVEL_INTERNAL9,211
+    public static final int LEVEL_ERROR ACIException.LEVEL_ERROR10,256
+    public static final int LEVEL_BUG ACIException.LEVEL_BUG11,304
+    public static final int LEVEL_WARNING ACIException.LEVEL_WARNING12,352
+    private int    mLevel;ACIException.mLevel14,401
+    private String mToken;ACIException.mToken15,428
+    private ArrayList<String> mExtraFileNames;ACIException.mExtraFileNames16,455
+    public ACIException(ACIException.ACIException17,502
+    public ACIException addExtraFile(ACIException.addExtraFile18,660
+    public String getToken(ACIException.getToken19,801
+    public int getLevel(ACIException.getLevel20,849
+    public Collection<String> getExtraFileNames(ACIException.getExtraFileNames21,894
+
+ACIMessageProxy.java,3047
+public abstract class ACIMessageProxy 22,597
+    protected ACInstrumentation        mInst;ACIMessageProxy.mInst24,652
+    private   MessageQueue             mTargetQueue;ACIMessageProxy.mTargetQueue25,698
+    private   SynchronousQueue<Object> mSync;ACIMessageProxy.mSync26,751
+    private   Method mQueueNext;ACIMessageProxy.mQueueNext27,797
+    private   Method mQueueEnqueueMessage;ACIMessageProxy.mQueueEnqueueMessage28,830
+    private   Field  mMessageWhen;ACIMessageProxy.mMessageWhen29,873
+    public ACIMessageProxy(ACIMessageProxy.ACIMessageProxy31,913
+    protected void prepare(ACIMessageProxy.prepare39,1186
+    protected void msgArrived(ACIMessageProxy.msgArrived40,1219
+    protected final boolean msgForward(ACIMessageProxy.msgForward42,1282
+    public void run(ACIMessageProxy.run60,1776
+class MessageInfo125,3802
+    public int what;MessageInfo.what127,3822
+    public int arg1;MessageInfo.arg1128,3843
+    public int arg2;MessageInfo.arg2129,3864
+    public int objHash;MessageInfo.objHash130,3885
+    public int cbHash;MessageInfo.cbHash131,3909
+    public int targetHash;MessageInfo.targetHash132,3932
+    public String objDesc MessageInfo.objDesc133,3959
+    public String cbDesc MessageInfo.cbDesc134,3991
+    public String targetDesc MessageInfo.targetDesc135,4022
+    public boolean equals(MessageInfo.equals137,4058
+    static private int hash(MessageInfo.hash145,4380
+    static private int hash(MessageInfo.hash152,4522
+    static private String getDesc(MessageInfo.getDesc156,4635
+    public int hashCode(MessageInfo.hashCode161,4778
+    static public MessageInfo obtain(MessageInfo.obtain167,4922
+    public String toString(MessageInfo.toString181,5447
+    static public MessageInfo obtain(MessageInfo.obtain185,5657
+class ACIMessageRecordProxy 216,6718
+    private BufferedWriter mMsgLog;ACIMessageRecordProxy.mMsgLog218,6772
+    public ACIMessageRecordProxy(ACIMessageRecordProxy.ACIMessageRecordProxy220,6813
+    protected void prepare(ACIMessageRecordProxy.prepare226,7072
+    protected void msgArrived(ACIMessageRecordProxy.msgArrived242,7588
+class ACIMessageReplayProxy 262,8066
+    class BufferedMessageACIMessageReplayProxy.BufferedMessage264,8120
+        public Message msg;ACIMessageReplayProxy.BufferedMessage.msg266,8152
+        public long when;ACIMessageReplayProxy.BufferedMessage.when267,8180
+    private LinkedList<MessageInfo> mOrder;ACIMessageReplayProxy.mOrder270,8217
+    private HashMap<ACIMessageReplayProxy.HashMap271,8261
+    private HashMap<MessageInfo, LinkedList<BufferedMessage> > mBuffer;ACIMessageReplayProxy.mBuffer271,8261
+    private HashMap<ACIMessageReplayProxy.HashMap272,8333
+    private HashMap<MessageInfo, Integer> mRefCount;ACIMessageReplayProxy.mRefCount272,8333
+    public ACIMessageReplayProxy(ACIMessageReplayProxy.ACIMessageReplayProxy274,8387
+    protected void prepare(ACIMessageReplayProxy.prepare283,8819
+    protected void msgArrived(ACIMessageReplayProxy.msgArrived335,10487
+
+ACIMessageQueueHijacker.java,3224
+class ACIMessageQueueHijacker 20,527
+    protected ACInstrumentation mInst;ACIMessageQueueHijacker.mInst22,579
+    protected MessageQueue mQueue;ACIMessageQueueHijacker.mQueue23,618
+    private static boolean mReflectionInit ACIMessageQueueHijacker.mReflectionInit25,658
+    private static Method mQueueNext;ACIMessageQueueHijacker.mQueueNext26,710
+    private static Method mQueueEnqueueMessage;ACIMessageQueueHijacker.mQueueEnqueueMessage27,748
+    private static Field  mMessageWhen;ACIMessageQueueHijacker.mMessageWhen28,796
+    public ACIMessageQueueHijacker(ACIMessageQueueHijacker.ACIMessageQueueHijacker30,837
+    private boolean checkForExitCondition(ACIMessageQueueHijacker.checkForExitCondition35,993
+    public void prepare(ACIMessageQueueHijacker.prepare40,1149
+    protected void msgArrived(ACIMessageQueueHijacker.msgArrived42,1180
+    protected final void msgForward(ACIMessageQueueHijacker.msgForward47,1262
+    public void run(ACIMessageQueueHijacker.run52,1389
+class ACIMessageQueueRecorder 123,3546
+    private BufferedWriter mMsgLog;ACIMessageQueueRecorder.mMsgLog125,3610
+    public ACIMessageQueueRecorder(ACIMessageQueueRecorder.ACIMessageQueueRecorder127,3651
+    public void prepare(ACIMessageQueueRecorder.prepare131,3789
+    protected void msgForwardAndRecord(ACIMessageQueueRecorder.msgForwardAndRecord147,4302
+    protected void msgArrived(ACIMessageQueueRecorder.msgArrived165,4761
+class ACIMessageQueueReplayer 170,4849
+    class BufferedMessageACIMessageQueueReplayer.BufferedMessage172,4913
+        public Message msg;ACIMessageQueueReplayer.BufferedMessage.msg174,4945
+    private LinkedList<MessageInfo> mOrder;ACIMessageQueueReplayer.mOrder177,4984
+    private HashMap<ACIMessageQueueReplayer.HashMap178,5028
+    private HashMap<MessageInfo, LinkedList<BufferedMessage> > mBuffer;ACIMessageQueueReplayer.mBuffer178,5028
+    private HashMap<ACIMessageQueueReplayer.HashMap179,5100
+    private HashMap<MessageInfo, Integer> mRefCount;ACIMessageQueueReplayer.mRefCount179,5100
+    public ACIMessageQueueReplayer(ACIMessageQueueReplayer.ACIMessageQueueReplayer181,5154
+    public void prepare(ACIMessageQueueReplayer.prepare189,5482
+    protected void msgArrived(ACIMessageQueueReplayer.msgArrived249,7370
+class ACIMessageQueueReplayer2 296,8791
+    private LinkedList<Message> mBlockedMessages;ACIMessageQueueReplayer2.mBlockedMessages299,8857
+    private LinkedList<Message> mBlockedACISyncRunnables;ACIMessageQueueReplayer2.mBlockedACISyncRunnables300,8907
+    private LinkedList<ACIMessageQueueReplayer2.LinkedList301,8965
+    private LinkedList<HashMap<MessageInfo, Integer>> mOrder;ACIMessageQueueReplayer2.mOrder301,8965
+    private HashMap<ACIMessageQueueReplayer2.HashMap302,9027
+    private HashMap<MessageInfo, Integer> mCurrentSet;ACIMessageQueueReplayer2.mCurrentSet302,9027
+    public ACIMessageQueueReplayer2(ACIMessageQueueReplayer2.ACIMessageQueueReplayer2304,9083
+    public void prepare(ACIMessageQueueReplayer2.prepare313,9456
+    private void fireACISyncRunnable(ACIMessageQueueReplayer2.fireACISyncRunnable375,11617
+    protected void msgArrived(ACIMessageQueueReplayer2.msgArrived403,12322
+
+ACInstrumentation.java,32767
+class RemoteControlListenTask 75,2349
+    protected Socket doInBackground(RemoteControlListenTask.doInBackground76,2422
+class ReadLineRunnable 98,2942
+    private BufferedReader mReader;ReadLineRunnable.mReader99,2987
+    private LinkedBlockingQueue<String> mQueue;ReadLineRunnable.mQueue100,3023
+    public ReadLineRunnable(ReadLineRunnable.ReadLineRunnable102,3080
+    public void run(ReadLineRunnable.run107,3234
+class WriteLineRunnable 125,3649
+    private BufferedWriter mWriter;WriteLineRunnable.mWriter126,3695
+    private LinkedBlockingQueue<String> mQueue;WriteLineRunnable.mQueue127,3731
+    public WriteLineRunnable(WriteLineRunnable.WriteLineRunnable129,3788
+    public void run(WriteLineRunnable.run134,3943
+class ACICmdStart 152,4327
+    public String getName(ACICmdStart.getName154,4366
+    public boolean isUISync(ACICmdStart.isUISync155,4414
+    public boolean isInternal(ACICmdStart.isInternal156,4462
+    public void execute(ACICmdStart.execute157,4511
+class ACICmdSetRandomSeed 165,4859
+    public String getName(ACICmdSetRandomSeed.getName167,4906
+    public boolean isUISync(ACICmdSetRandomSeed.isUISync168,4962
+    public boolean isInternal(ACICmdSetRandomSeed.isInternal169,5010
+    public void execute(ACICmdSetRandomSeed.execute170,5059
+class ACICmdEnterReplay 180,5361
+    public String getName(ACICmdEnterReplay.getName182,5406
+    public boolean isUISync(ACICmdEnterReplay.isUISync183,5460
+    public boolean isInternal(ACICmdEnterReplay.isInternal184,5508
+    public void execute(ACICmdEnterReplay.execute185,5557
+class ACICmdExitReplay 192,5715
+    public String getName(ACICmdExitReplay.getName194,5759
+    public boolean isUISync(ACICmdExitReplay.isUISync195,5812
+    public boolean isInternal(ACICmdExitReplay.isInternal196,5860
+    public void execute(ACICmdExitReplay.execute197,5909
+class ACICmdBeFaithful 203,6028
+    public String getName(ACICmdBeFaithful.getName205,6072
+    public boolean isUISync(ACICmdBeFaithful.isUISync206,6125
+    public boolean isInternal(ACICmdBeFaithful.isInternal207,6173
+    public void execute(ACICmdBeFaithful.execute208,6222
+class ACICmdEnableChecker 214,6386
+    public String getName(ACICmdEnableChecker.getName216,6433
+    public boolean isUISync(ACICmdEnableChecker.isUISync217,6489
+    public boolean isInternal(ACICmdEnableChecker.isInternal218,6537
+    public void execute(ACICmdEnableChecker.execute219,6586
+class ACICmdDisableChecker 225,6710
+    public String getName(ACICmdDisableChecker.getName227,6758
+    public boolean isUISync(ACICmdDisableChecker.isUISync228,6815
+    public boolean isInternal(ACICmdDisableChecker.isInternal229,6863
+    public void execute(ACICmdDisableChecker.execute230,6912
+class ACICmdSetOnlyViewTreeDescInStateOn 236,7037
+    public String getName(ACICmdSetOnlyViewTreeDescInStateOn.getName238,7099
+    public boolean isUISync(ACICmdSetOnlyViewTreeDescInStateOn.isUISync239,7170
+    public boolean isInternal(ACICmdSetOnlyViewTreeDescInStateOn.isInternal240,7218
+    public void execute(ACICmdSetOnlyViewTreeDescInStateOn.execute241,7267
+class ACICmdSetOnlyViewTreeDescInStateOff 247,7400
+    public String getName(ACICmdSetOnlyViewTreeDescInStateOff.getName249,7463
+    public boolean isUISync(ACICmdSetOnlyViewTreeDescInStateOff.isUISync250,7535
+    public boolean isInternal(ACICmdSetOnlyViewTreeDescInStateOff.isInternal251,7583
+    public void execute(ACICmdSetOnlyViewTreeDescInStateOff.execute252,7632
+class ACICmdEnableLifeCycleChecker 258,7766
+    public String getName(ACICmdEnableLifeCycleChecker.getName260,7822
+    public boolean isUISync(ACICmdEnableLifeCycleChecker.isUISync261,7887
+    public boolean isInternal(ACICmdEnableLifeCycleChecker.isInternal262,7935
+    public void execute(ACICmdEnableLifeCycleChecker.execute263,7984
+class ACICmdDisableLifeCycleChecker 269,8117
+    public String getName(ACICmdDisableLifeCycleChecker.getName271,8174
+    public boolean isUISync(ACICmdDisableLifeCycleChecker.isUISync272,8240
+    public boolean isInternal(ACICmdDisableLifeCycleChecker.isInternal273,8288
+    public void execute(ACICmdDisableLifeCycleChecker.execute274,8337
+class ACICmdDoInjectEvents 280,8471
+    public String getName(ACICmdDoInjectEvents.getName282,8519
+    public boolean isUISync(ACICmdDoInjectEvents.isUISync283,8576
+    public boolean isInternal(ACICmdDoInjectEvents.isInternal284,8624
+    public void execute(ACICmdDoInjectEvents.execute285,8673
+class ACICmdDontInjectEvents 291,8795
+    public String getName(ACICmdDontInjectEvents.getName293,8845
+    public boolean isUISync(ACICmdDontInjectEvents.isUISync294,8904
+    public boolean isInternal(ACICmdDontInjectEvents.isInternal295,8952
+    public void execute(ACICmdDontInjectEvents.execute296,9001
+class ACICmdGetViewGeo 302,9124
+    public String getName(ACICmdGetViewGeo.getName304,9168
+    public boolean isUISync(ACICmdGetViewGeo.isUISync305,9221
+    public boolean isInternal(ACICmdGetViewGeo.isInternal306,9268
+    public void execute(ACICmdGetViewGeo.execute307,9317
+class ACICmdGetViewId 327,9928
+    public String getName(ACICmdGetViewId.getName329,9971
+    public boolean isUISync(ACICmdGetViewId.isUISync330,10023
+    public boolean isInternal(ACICmdGetViewId.isInternal331,10070
+    public void execute(ACICmdGetViewId.execute332,10119
+class ACICmdSetViewText 339,10344
+    public String getName(ACICmdSetViewText.getName341,10389
+    public boolean isUISync(ACICmdSetViewText.isUISync342,10443
+    public boolean isInternal(ACICmdSetViewText.isInternal343,10490
+    public void execute(ACICmdSetViewText.execute344,10540
+class ACICmdGetViewChild 358,10988
+    public String getName(ACICmdGetViewChild.getName360,11034
+    public boolean isUISync(ACICmdGetViewChild.isUISync361,11089
+    public boolean isInternal(ACICmdGetViewChild.isInternal362,11136
+    public void execute(ACICmdGetViewChild.execute364,11186
+class ACICmdGetFocusedDecorViewImage 385,11972
+    public String getName(ACICmdGetFocusedDecorViewImage.getName387,12030
+    public boolean isUISync(ACICmdGetFocusedDecorViewImage.isUISync388,12097
+    public boolean isInternal(ACICmdGetFocusedDecorViewImage.isInternal389,12144
+    public void execute(ACICmdGetFocusedDecorViewImage.execute390,12193
+class ACICmdGetViewImage 409,12749
+    public String getName(ACICmdGetViewImage.getName411,12795
+    public boolean isUISync(ACICmdGetViewImage.isUISync412,12850
+    public boolean isInternal(ACICmdGetViewImage.isInternal413,12897
+    public void execute(ACICmdGetViewImage.execute414,12946
+class ACICmdPointerClickOnPoint 432,13579
+    public String getName(ACICmdPointerClickOnPoint.getName434,13632
+    public boolean isUISync(ACICmdPointerClickOnPoint.isUISync435,13694
+    public boolean isInternal(ACICmdPointerClickOnPoint.isInternal436,13742
+    public void execute(ACICmdPointerClickOnPoint.execute437,13792
+class ACICmdLongClick 457,14513
+    public String getName(ACICmdLongClick.getName459,14556
+    public boolean isUISync(ACICmdLongClick.isUISync460,14608
+    public boolean isInternal(ACICmdLongClick.isInternal461,14655
+    public void execute(ACICmdLongClick.execute462,14705
+class ACICmdMenuClick 487,15909
+    class GetFocusActivityRunnable ACICmdMenuClick.GetFocusActivityRunnable489,15952
+        public void run(ACICmdMenuClick.GetFocusActivityRunnable.run492,16059
+    public String getName(ACICmdMenuClick.getName501,16280
+    public boolean isUISync(ACICmdMenuClick.isUISync502,16332
+    public boolean isInternal(ACICmdMenuClick.isInternal503,16380
+    public void execute(ACICmdMenuClick.execute504,16430
+class ACICmdKeyDown 518,16913
+    public String getName(ACICmdKeyDown.getName520,16954
+    public boolean isUISync(ACICmdKeyDown.isUISync521,17004
+    public boolean isInternal(ACICmdKeyDown.isInternal522,17052
+    public void execute(ACICmdKeyDown.execute523,17102
+class ACICmdKeyUp 531,17369
+    public String getName(ACICmdKeyUp.getName533,17408
+    public boolean isUISync(ACICmdKeyUp.isUISync534,17456
+    public boolean isInternal(ACICmdKeyUp.isInternal535,17504
+    public void execute(ACICmdKeyUp.execute536,17554
+class ACICmdInput 544,17819
+    public String getName(ACICmdInput.getName546,17858
+    public boolean isUISync(ACICmdInput.isUISync547,17906
+    public boolean isInternal(ACICmdInput.isInternal548,17954
+    public void execute(ACICmdInput.execute549,18004
+class ACICmdWaitForIdle 556,18193
+    public String getName(ACICmdWaitForIdle.getName558,18238
+    public boolean isUISync(ACICmdWaitForIdle.isUISync559,18292
+    public boolean isInternal(ACICmdWaitForIdle.isInternal560,18340
+    public void execute(ACICmdWaitForIdle.execute561,18389
+class ACICmdFinish 567,18507
+    public String getName(ACICmdFinish.getName569,18547
+    public boolean isUISync(ACICmdFinish.isUISync570,18596
+    public boolean isInternal(ACICmdFinish.isInternal571,18644
+    public void execute(ACICmdFinish.execute572,18693
+class ACICmdLoadApk 578,18820
+    public String getName(ACICmdLoadApk.getName580,18861
+    public boolean isUISync(ACICmdLoadApk.isUISync581,18911
+    public boolean isInternal(ACICmdLoadApk.isInternal582,18959
+    public void execute(ACICmdLoadApk.execute583,19008
+class ACICmdRotate 595,19364
+    public String getName(ACICmdRotate.getName597,19404
+    public boolean isUISync(ACICmdRotate.isUISync598,19453
+    public boolean isInternal(ACICmdRotate.isInternal599,19501
+    public void execute(ACICmdRotate.execute600,19551
+class ACICmdDumpViews 606,19667
+    void dumpView(ACICmdDumpViews.dumpView608,19710
+    public String getName(ACICmdDumpViews.getName630,20476
+    public boolean isUISync(ACICmdDumpViews.isUISync631,20528
+    public boolean isInternal(ACICmdDumpViews.isInternal632,20575
+    public void execute(ACICmdDumpViews.execute633,20624
+class ACICmdFindViewByClass 646,21048
+    public String getName(ACICmdFindViewByClass.getName648,21097
+    public boolean isUISync(ACICmdFindViewByClass.isUISync649,21155
+    public boolean isInternal(ACICmdFindViewByClass.isInternal650,21202
+    public void execute(ACICmdFindViewByClass.execute651,21251
+class ACICmdCrawl 668,21816
+    public String getName(ACICmdCrawl.getName670,21855
+    public boolean isUISync(ACICmdCrawl.isUISync671,21903
+    public boolean isInternal(ACICmdCrawl.isInternal672,21951
+    public void execute(ACICmdCrawl.execute673,22000
+class ACICmdAddChecker 710,23451
+    public String  getName(ACICmdAddChecker.getName712,23495
+    public boolean isUISync(ACICmdAddChecker.isUISync713,23549
+    public boolean isInternal(ACICmdAddChecker.isInternal714,23597
+    public void execute(ACICmdAddChecker.execute715,23646
+class ACICmdRemoveChecker 739,24433
+    public String  getName(ACICmdRemoveChecker.getName741,24480
+    public boolean isUISync(ACICmdRemoveChecker.isUISync742,24537
+    public boolean isInternal(ACICmdRemoveChecker.isInternal743,24585
+    public void execute(ACICmdRemoveChecker.execute744,24634
+class ACICmdRemoveAllCheckers 768,25424
+    public String  getName(ACICmdRemoveAllCheckers.getName770,25475
+    public boolean isUISync(ACICmdRemoveAllCheckers.isUISync771,25536
+    public boolean isInternal(ACICmdRemoveAllCheckers.isInternal772,25584
+    public void execute(ACICmdRemoveAllCheckers.execute773,25633
+class ACICmdCollect 792,26225
+    public String getName(ACICmdCollect.getName794,26266
+    public boolean isUISync(ACICmdCollect.isUISync795,26316
+    public boolean isInternal(ACICmdCollect.isInternal796,26364
+    public void execute(ACICmdCollect.execute797,26413
+class ACICmdSelect 827,27515
+    public String getName(ACICmdSelect.getName829,27555
+    public boolean isUISync(ACICmdSelect.isUISync830,27604
+    public boolean isInternal(ACICmdSelect.isInternal831,27652
+    public void execute(ACICmdSelect.execute832,27702
+class ACICmdPauseAndResume 849,28267
+    public String getName(ACICmdPauseAndResume.getName851,28315
+    public boolean isUISync(ACICmdPauseAndResume.isUISync852,28372
+    public boolean isInternal(ACICmdPauseAndResume.isInternal853,28419
+    public void execute(ACICmdPauseAndResume.execute854,28469
+class ACICmdStopAndRestart 874,29046
+    public String getName(ACICmdStopAndRestart.getName876,29094
+    public boolean isUISync(ACICmdStopAndRestart.isUISync877,29151
+    public boolean isInternal(ACICmdStopAndRestart.isInternal878,29198
+    public void execute(ACICmdStopAndRestart.execute879,29248
+class ACICmdRelaunchCurrentActivity 902,29958
+    public String getName(ACICmdRelaunchCurrentActivity.getName904,30015
+    public boolean isUISync(ACICmdRelaunchCurrentActivity.isUISync905,30081
+    public boolean isInternal(ACICmdRelaunchCurrentActivity.isInternal906,30129
+    private Activity act;ACICmdRelaunchCurrentActivity.act908,30180
+    private LifeCycleChecker lcc ACICmdRelaunchCurrentActivity.lcc909,30206
+    private Exception ex ACICmdRelaunchCurrentActivity.ex910,30247
+    public void execute(ACICmdRelaunchCurrentActivity.execute912,30285
+class ACICmdRecreateCurrentActivity 996,33503
+    public String getName(ACICmdRecreateCurrentActivity.getName998,33560
+    public boolean isUISync(ACICmdRecreateCurrentActivity.isUISync999,33627
+    public boolean isInternal(ACICmdRecreateCurrentActivity.isInternal1000,33674
+    public void execute(ACICmdRecreateCurrentActivity.execute1001,33723
+class ACICmdSleep 1012,33980
+    public String getName(ACICmdSleep.getName1014,34019
+    public boolean isUISync(ACICmdSleep.isUISync1015,34067
+    public boolean isInternal(ACICmdSleep.isInternal1016,34115
+    public void execute(ACICmdSleep.execute1017,34164
+class ACICmdDummyTest 1024,34329
+    public String getName(ACICmdDummyTest.getName1026,34372
+    public boolean isUISync(ACICmdDummyTest.isUISync1027,34424
+    public boolean isInternal(ACICmdDummyTest.isInternal1028,34471
+    public void execute(ACICmdDummyTest.execute1029,34520
+class ACICmdSetWaitForAsyncTaskOn 1048,35186
+    public String getName(ACICmdSetWaitForAsyncTaskOn.getName1050,35241
+    public boolean isUISync(ACICmdSetWaitForAsyncTaskOn.isUISync1051,35305
+    public boolean isInternal(ACICmdSetWaitForAsyncTaskOn.isInternal1052,35353
+    public void execute(ACICmdSetWaitForAsyncTaskOn.execute1053,35402
+class ACICmdSetWaitForAsyncTaskOff 1059,35528
+    public String getName(ACICmdSetWaitForAsyncTaskOff.getName1061,35584
+    public boolean isUISync(ACICmdSetWaitForAsyncTaskOff.isUISync1062,35649
+    public boolean isInternal(ACICmdSetWaitForAsyncTaskOff.isInternal1063,35697
+    public void execute(ACICmdSetWaitForAsyncTaskOff.execute1064,35746
+class ACICmdHintEdit 1070,35873
+    public String getName(ACICmdHintEdit.getName1072,35915
+    public boolean isUISync(ACICmdHintEdit.isUISync1073,35966
+    public boolean isInternal(ACICmdHintEdit.isInternal1074,36014
+    public void execute(ACICmdHintEdit.execute1075,36063
+class ACICmdHintBtn 1091,36555
+    public String getName(ACICmdHintBtn.getName1093,36596
+    public boolean isUISync(ACICmdHintBtn.isUISync1094,36646
+    public boolean isInternal(ACICmdHintBtn.isInternal1095,36694
+    public void execute(ACICmdHintBtn.execute1096,36743
+class ACICmdUnhintEdit 1106,37001
+    public String getName(ACICmdUnhintEdit.getName1108,37045
+    public boolean isUISync(ACICmdUnhintEdit.isUISync1109,37098
+    public boolean isInternal(ACICmdUnhintEdit.isInternal1110,37146
+    public void execute(ACICmdUnhintEdit.execute1111,37195
+class ACICmdShouldChangeDpi 1119,37414
+    public String getName(ACICmdShouldChangeDpi.getName1121,37463
+    public boolean isUISync(ACICmdShouldChangeDpi.isUISync1122,37521
+    public boolean isInternal(ACICmdShouldChangeDpi.isInternal1123,37568
+    public void execute(ACICmdShouldChangeDpi.execute1124,37617
+class ACICmdChangeDpi 1140,38112
+    public String getName(ACICmdChangeDpi.getName1142,38155
+    public boolean isUISync(ACICmdChangeDpi.isUISync1143,38207
+    public boolean isInternal(ACICmdChangeDpi.isInternal1144,38254
+    public void execute(ACICmdChangeDpi.execute1145,38304
+class ACICmdRoll 1155,38638
+    public String getName(ACICmdRoll.getName1157,38676
+    public boolean isUISync(ACICmdRoll.isUISync1158,38723
+    public boolean isInternal(ACICmdRoll.isInternal1159,38770
+    public void execute(ACICmdRoll.execute1160,38820
+class ACIAsyncTaskProxy 1184,39627
+    private ACInstrumentation mInst;ACIAsyncTaskProxy.mInst1186,39673
+    ACIAsyncTaskProxy(ACIAsyncTaskProxy.ACIAsyncTaskProxy1188,39711
+    public void execute(ACIAsyncTaskProxy.execute1192,39810
+class ACIAsyncTaskProxy23 1204,40165
+    private ACInstrumentation mInst;ACIAsyncTaskProxy23.mInst1206,40220
+    ACIAsyncTaskProxy23(ACIAsyncTaskProxy23.ACIAsyncTaskProxy231208,40258
+    public void execute(ACIAsyncTaskProxy23.execute1213,40416
+class ACISyncRunnable 1226,40818
+    private final Runnable mTarget;ACISyncRunnable.mTarget1227,40862
+    private boolean mComplete;ACISyncRunnable.mComplete1228,40898
+    public ACISyncRunnable(ACISyncRunnable.ACISyncRunnable1230,40934
+    public void run(ACISyncRunnable.run1234,41013
+    public void waitForComplete(ACISyncRunnable.waitForComplete1242,41162
+class ACIHandler 1254,41413
+    ACInstrumentation mInst;ACIHandler.mInst1256,41448
+    public ACIHandler(ACIHandler.ACIHandler1258,41482
+    public void handleMessage(ACIHandler.handleMessage1262,41585
+public class ACInstrumentation 1267,41685
+    static class InstConfigurationACInstrumentation.InstConfiguration1269,41743
+    InstConfiguration conf ACInstrumentation.conf1277,41964
+    void initConfiguration(ACInstrumentation.initConfiguration1279,42023
+    private static Class<?> looperKlass;ACInstrumentation.looperKlass1318,43241
+    private static Class<?> bundleKlass;ACInstrumentation.bundleKlass1319,43282
+    private static Class<?> activityKlass;ACInstrumentation.activityKlass1320,43323
+    private static Class<?> activityThreadKlass;ACInstrumentation.activityThreadKlass1321,43366
+    private static Class<?> activityThreadKlassApplicationThreadKlass;ACInstrumentation.activityThreadKlassApplicationThreadKlass1322,43415
+    public  static Class<?> viewPagerKlass;ACInstrumentation.viewPagerKlass1323,43486
+    private static Method   currentActivityThread;ACInstrumentation.currentActivityThread1324,43530
+    private static Method   scheduleRelaunchActivity_5;ACInstrumentation.scheduleRelaunchActivity_51325,43581
+    private static Method   scheduleRelaunchActivity_6;ACInstrumentation.scheduleRelaunchActivity_61326,43637
+    private static Method   activityThreadMethodGetApplciationThread;ACInstrumentation.activityThreadMethodGetApplciationThread1327,43693
+    private static Field    activityFieldToken;ACInstrumentation.activityFieldToken1328,43763
+    private static Method   activityMethodPerformPause;ACInstrumentation.activityMethodPerformPause1329,43811
+    private static Method   activityMethodPerformSaveInstanceState;ACInstrumentation.activityMethodPerformSaveInstanceState1330,43867
+    private static Method   activityMethodPerformStop;ACInstrumentation.activityMethodPerformStop1331,43935
+    private static Method   activityMethodPerformRestart;ACInstrumentation.activityMethodPerformRestart1332,43990
+    private static Method   activityMethodPerformStart;ACInstrumentation.activityMethodPerformStart1333,44048
+    private static Method   activityMethodPerformRestoreInstanceState;ACInstrumentation.activityMethodPerformRestoreInstanceState1334,44104
+    private static Method   activityMethodPerformResume;ACInstrumentation.activityMethodPerformResume1335,44175
+    private static Field    looperFieldSThreadLocal;ACInstrumentation.looperFieldSThreadLocal1336,44232
+    private static Method   looperMethodSetMainLooper;ACInstrumentation.looperMethodSetMainLooper1337,44285
+    private static Field    asyncTaskFieldExecutor;ACInstrumentation.asyncTaskFieldExecutor1338,44340
+    private static Method   activityMethodRecreate;ACInstrumentation.activityMethodRecreate1339,44392
+    public  static Field    decorViewFeature;ACInstrumentation.decorViewFeature1340,44444
+    public  static Method   viewPagerMethodGetCurrentItem;ACInstrumentation.viewPagerMethodGetCurrentItem1341,44490
+    public  static Method   systemPropertiesMethodSet;ACInstrumentation.systemPropertiesMethodSet1342,44549
+    public  static Field    looperFieldQueue;ACInstrumentation.looperFieldQueue1343,44604
+    public  static Method   seekBarMethodStartTracking;ACInstrumentation.seekBarMethodStartTracking1344,44650
+    public  static Method   seekBarMethodStopTracking;ACInstrumentation.seekBarMethodStopTracking1345,44706
+    private void initReflection(ACInstrumentation.initReflection1347,44762
+    public boolean relaunchActivity(ACInstrumentation.relaunchActivity1451,49773
+    private SparseArray<View> tempIdMap;ACInstrumentation.tempIdMap1486,50946
+    private Map<ACInstrumentation.Map1487,50987
+    private Map<View, Integer> tempIdRevMap;ACInstrumentation.tempIdRevMap1487,50987
+    public Random random ACInstrumentation.random1488,51032
+    public Random chkrand ACInstrumentation.chkrand1489,51073
+    public static final int VIEWID_NONE ACInstrumentation.VIEWID_NONE1490,51115
+    public void setRandomSeed(ACInstrumentation.setRandomSeed1492,51162
+    Map<ACInstrumentation.Map1494,51267
+    Map<Integer, EditTextContent> editTextDb ACInstrumentation.editTextDb1494,51267
+    Map<ACInstrumentation.Map1495,51355
+    Map<Integer, String[]> hintDb ACInstrumentation.hintDb1495,51355
+    public Vector<Operation> collectedOperations ACInstrumentation.collectedOperations1496,51425
+    public void validateInAppThread(ACInstrumentation.validateInAppThread1498,51483
+    public void validateNotInAppThread(ACInstrumentation.validateNotInAppThread1506,51914
+    private String    mInstName;ACInstrumentation.mInstName1514,52348
+    private Resources mResources;ACInstrumentation.mResources1515,52381
+    private Socket    mCMDSocket ACInstrumentation.mCMDSocket1516,52415
+            Executor                    mAsyncTaskExecutor;ACInstrumentation.mAsyncTaskExecutor1517,52456
+    private Executor                    mAsyncTaskProxy;ACInstrumentation.mAsyncTaskProxy1518,52516
+    private ACIMessageProxy             mMessageProxy;ACInstrumentation.mMessageProxy1519,52573
+            MessageQueue                mMainQueue;ACInstrumentation.mMainQueue1520,52628
+    private Handler                     mInstHandler;ACInstrumentation.mInstHandler1521,52680
+    private ACIMessageQueueHijacker     mMainQueueHijacker;ACInstrumentation.mMainQueueHijacker1522,52734
+    private LinkedBlockingQueue<String> mRequestQueue;ACInstrumentation.mRequestQueue1523,52794
+    private LinkedBlockingQueue<String> mGeneratedRequestQueue;ACInstrumentation.mGeneratedRequestQueue1524,52849
+    private LinkedBlockingQueue<String> mResponseQueue;ACInstrumentation.mResponseQueue1525,52913
+    private BufferedWriter              mCmdLog;ACInstrumentation.mCmdLog1526,52969
+    private MonkeyRunnerGenerator       mMonkeyRunnerGenerator;ACInstrumentation.mMonkeyRunnerGenerator1527,53018
+    private static ACInstrumentation    mSelf;ACInstrumentation.mSelf1529,53139
+    private HashSet<Activity>           mCurrentActivities;ACInstrumentation.mCurrentActivities1530,53205
+    private HashSet<Runnable>           mChecker;ACInstrumentation.mChecker1531,53265
+    private HashSet<Integer>            mViewHashs;ACInstrumentation.mViewHashs1532,53315
+    private File                        mInstDataDir;ACInstrumentation.mInstDataDir1533,53367
+    private boolean                     mInReplay ACInstrumentation.mInReplay1534,53421
+    private boolean                     mCheckerEnabled ACInstrumentation.mCheckerEnabled1535,53480
+    private boolean                     mLifeCycleCheckerEnabled ACInstrumentation.mLifeCycleCheckerEnabled1536,53544
+    private boolean                     mInjectEvents ACInstrumentation.mInjectEvents1537,53617
+    private Map<ACInstrumentation.Map1538,53680
+    private Map<String, Integer>        mRollableActs ACInstrumentation.mRollableActs1538,53680
+    public Handler getHandler(ACInstrumentation.getHandler1540,53769
+    public boolean isSystemClass(ACInstrumentation.isSystemClass1544,53839
+    public boolean shouldManageMessage(ACInstrumentation.shouldManageMessage1554,54181
+    private static class ObjectWithNumberTag ACInstrumentation.ObjectWithNumberTag1564,54576
+        public Integer tag;ACInstrumentation.ObjectWithNumberTag.tag1566,54670
+        public Object  value;ACInstrumentation.ObjectWithNumberTag.value1567,54698
+        public ObjectWithNumberTag(ACInstrumentation.ObjectWithNumberTag.ObjectWithNumberTag1569,54729
+        public int compareTo(ACInstrumentation.ObjectWithNumberTag.compareTo1573,54860
+    boolean        mWaitForAsyncTask ACInstrumentation.mWaitForAsyncTask1578,54972
+    Object         mAsyncTaskCountLock ACInstrumentation.mAsyncTaskCountLock1579,55020
+    int            mAsyncTaskCount ACInstrumentation.mAsyncTaskCount1580,55075
+    CountDownLatch mAsyncTaskCountZero ACInstrumentation.mAsyncTaskCountZero1581,55119
+    public void setWaitForAsyncTask(ACInstrumentation.setWaitForAsyncTask1583,55167
+    public void acquireAsyncTaskCount(ACInstrumentation.acquireAsyncTaskCount1587,55268
+    public void releaseAsyncTaskCount(ACInstrumentation.releaseAsyncTaskCount1595,55467
+    public void waitForIdleSync(ACInstrumentation.waitForIdleSync1607,55805
+    private ArrayList<ObjectWithNumberTag> mDelayList;ACInstrumentation.mDelayList1633,56604
+    public void addDelayedRunnable(ACInstrumentation.addDelayedRunnable1635,56660
+    public void setInReplay(ACInstrumentation.setInReplay1639,56807
+    public boolean isInReplay(ACInstrumentation.isInReplay1640,56865
+    public boolean isFaithful(ACInstrumentation.isFaithful1642,56924
+    public void setCheckerEnabled(ACInstrumentation.setCheckerEnabled1644,56989
+    public boolean isCheckerEnabled(ACInstrumentation.isCheckerEnabled1645,57059
+    public void setLifeCycleCheckerEnabled(ACInstrumentation.setLifeCycleCheckerEnabled1647,57126
+    public boolean isLifeCycleCheckerEnabled(ACInstrumentation.isLifeCycleCheckerEnabled1648,57214
+    private boolean mOnlyViewTreeInState ACInstrumentation.mOnlyViewTreeInState1650,57318
+    public void setOnlyViewTreeDescInState(ACInstrumentation.setOnlyViewTreeDescInState1652,57373
+    public boolean onlyViewTreeDescInState(ACInstrumentation.onlyViewTreeDescInState1653,57457
+    public void setInjectEvents(ACInstrumentation.setInjectEvents1655,57536
+    public boolean doInjectEvents(ACInstrumentation.doInjectEvents1656,57602
+    public File getInstrumentDataDir(ACInstrumentation.getInstrumentDataDir1659,57666
+    public static ACInstrumentation getSelf(ACInstrumentation.getSelf1660,57730
+    public Activity getCurrentActivity(ACInstrumentation.getCurrentActivity1662,57795
+    public void addChecker(ACInstrumentation.addChecker1684,58401
+    Iterator<Runnable> getCheckers(ACInstrumentation.getCheckers1688,58476
+    public void addRequest(ACInstrumentation.addRequest1692,58558
+    public void addResponse(ACInstrumentation.addResponse1697,58684
+    public boolean mSessionFinishFlag;ACInstrumentation.mSessionFinishFlag1702,58808
+    Thread mReadLineThread;ACInstrumentation.mReadLineThread1704,58852
+    Thread mWriteLineThread;ACInstrumentation.mWriteLineThread1705,58880
+    public void log(ACInstrumentation.log1707,58910
+    public void runOnMainSync(ACInstrumentation.runOnMainSync1712,58996
+    RemoteControlListenTask mListenTask ACInstrumentation.mListenTask1725,59330
+    public void onCreate(ACInstrumentation.onCreate1728,59393
+    public void startTarget(ACInstrumentation.startTarget1822,62546
+    public void switchBack(ACInstrumentation.switchBack1839,63218
+    public View getFocusedDecorView(ACInstrumentation.getFocusedDecorView1843,63310
+    public View findReachableViewById(ACInstrumentation.findReachableViewById1852,63624
+    public boolean getReachableViewGeoById(ACInstrumentation.getReachableViewGeoById1861,63918
+    public ByteBuffer getViewImageAsNativeBuffer(ACInstrumentation.getViewImageAsNativeBuffer1889,64779
+    public BBImage getViewImageAsBBImage(ACInstrumentation.getViewImageAsBBImage1903,65287
+    public String getViewTreeDesc(ACInstrumentation.getViewTreeDesc1917,65758
+    public Parcelable getCurrentActivityInstanceState(ACInstrumentation.getCurrentActivityInstanceState1958,67354
+    public BBImage grabSnapshotBB(ACInstrumentation.grabSnapshotBB2011,69307
+    public File saveImage(ACInstrumentation.saveImage2036,70178
+    public int getInternalId(ACInstrumentation.getInternalId2044,70510
+    class MyDexClassLoader ACInstrumentation.MyDexClassLoader2055,70845
+        public MyDexClassLoader(ACInstrumentation.MyDexClassLoader.MyDexClassLoader2057,70898
+        public Class<?> doLoadClass(ACInstrumentation.MyDexClassLoader.doLoadClass2062,71119
+    public boolean loadCommand(ACInstrumentation.loadCommand2067,71265
+    public int getViewId(ACInstrumentation.getViewId2091,72254
+    String getViewDesc(ACInstrumentation.getViewDesc2104,72707
+    public int findViewByClass(ACInstrumentation.findViewByClass2145,74246
+    public String formatException(ACInstrumentation.formatException2160,74745
+    private void registerCommand(ACInstrumentation.registerCommand2194,75861
+    public void onStart(ACInstrumentation.onStart2202,76183
+    public void injectLifeCycleEvent(ACInstrumentation.injectLifeCycleEvent2380,84330
+    public void callActivityOnCreate(ACInstrumentation.callActivityOnCreate2391,84650
+    public void callActivityOnDestroy(ACInstrumentation.callActivityOnDestroy2416,85641
+    public void callActivityOnNewIntent(ACInstrumentation.callActivityOnNewIntent2425,85973
+    public void callActivityOnPause(ACInstrumentation.callActivityOnPause2431,86231
+    public void callActivityOnPostCreate(ACInstrumentation.callActivityOnPostCreate2449,86876
+    public void callActivityOnRestart(ACInstrumentation.callActivityOnRestart2455,87137
+    public void callActivityOnRestoreInstanceState(ACInstrumentation.callActivityOnRestoreInstanceState2461,87366
+    public void callActivityOnResume(ACInstrumentation.callActivityOnResume2467,87681
+    public void callActivityOnSaveInstanceState(ACInstrumentation.callActivityOnSaveInstanceState2484,88320
+    public void callActivityOnStart(ACInstrumentation.callActivityOnStart2490,88606
+    public void callActivityOnStop(ACInstrumentation.callActivityOnStop2496,88829
+    public void callActivityOnUserLeaving(ACInstrumentation.callActivityOnUserLeaving2502,89049
+    public boolean onException(ACInstrumentation.onException2508,89290
+    public View findViewById(ACInstrumentation.findViewById2522,89642
+    public View findViewById(ACInstrumentation.findViewById2528,89793
+    public View findViewById(ACInstrumentation.findViewById2534,89945
+    private static Class<?> windowManager;ACInstrumentation.windowManager2540,90118
+    private static String windowManagerString;ACInstrumentation.windowManagerString2541,90161
+    public View[] getWindowDecorViews(ACInstrumentation.getWindowDecorViews2569,91116
+    public void addHint(ACInstrumentation.addHint2606,92478
+    public String[] resolveHint(ACInstrumentation.resolveHint2611,92626
+    public void addEditProvider(ACInstrumentation.addEditProvider2623,92967
+    public void removeEditProvider(ACInstrumentation.removeEditProvider2628,93150
+    public EditTextContent resolveEditContent(ACInstrumentation.resolveEditContent2632,93233
+    void removeFocus(ACInstrumentation.removeFocus2644,93619
+    public boolean mayRoll(ACInstrumentation.mayRoll2656,93948
+    public void recordRollableAct(ACInstrumentation.recordRollableAct2670,94509
+    public void doRoll(ACInstrumentation.doRoll2676,94735
+    public void doRotate(ACInstrumentation.doRotate2692,95344
+    public boolean addToViewHashs(ACInstrumentation.addToViewHashs2811,100471
+    public boolean existsInViewHashs(ACInstrumentation.existsInViewHashs2815,100569
+    public MonkeyRunnerGenerator getMonkeyRunnerGenerator(ACInstrumentation.getMonkeyRunnerGenerator2819,100675
+    boolean instanceOf(ACInstrumentation.instanceOf2823,100783
+
+BalancedTree.java,840
+public abstract class BalancedTree<BalancedTree5,62
+	Compare<T> compare;BalancedTree.compare7,129
+	BalancedTree(BalancedTree.BalancedTree8,150
+	public interface Compare<BalancedTree.Compare11,215
+class TreeNode<TreeNode16,279
+	T obj;TreeNode.obj17,299
+	TreeNode<T> left,TreeNode.left18,307
+	TreeNode<T> left, right;TreeNode.right18,307
+	TreeNode(TreeNode.TreeNode19,333
+	TreeNode<T> getLeft(TreeNode.getLeft23,375
+	TreeNode<T> getRight(TreeNode.getRight24,415
+	T getObj(TreeNode.getObj25,457
+class Treap<Treap28,488
+	Random random;Treap.random29,529
+	TreapNode<T> root;Treap.root30,545
+	Treap(Treap.Treap31,565
+	class TreapNode<Treap.TreapNode36,655
+		int prio;Treap.TreapNode.prio37,697
+		TreapNode(Treap.TreapNode.TreapNode38,709
+	void put(Treap.put44,791
+	void insertNode(Treap.insertNode52,930
+
+Base64.java,4313
+public class Base64Treap.Base64149,8772
+    public final static int NO_OPTIONS Base64.NO_OPTIONS156,8912
+    public final static int ENCODE Base64.ENCODE159,9017
+    public final static int DECODE Base64.DECODE163,9124
+    public final static int GZIP Base64.GZIP167,9254
+    public final static int DONT_GUNZIP Base64.DONT_GUNZIP170,9378
+    public final static int DO_BREAK_LINES Base64.DO_BREAK_LINES174,9486
+     public final static int URL_SAFE Base64.URL_SAFE184,10021
+     public final static int ORDERED Base64.ORDERED191,10261
+    private final static int MAX_LINE_LENGTH Base64.MAX_LINE_LENGTH198,10434
+    private final static byte EQUALS_SIGN Base64.EQUALS_SIGN202,10537
+    private final static byte NEW_LINE Base64.NEW_LINE206,10652
+    private final static String PREFERRED_ENCODING Base64.PREFERRED_ENCODING210,10746
+    private final static byte WHITE_SPACE_ENC Base64.WHITE_SPACE_ENC213,10821
+    private final static byte EQUALS_SIGN_ENC Base64.EQUALS_SIGN_ENC214,10910
+    private final static byte[] _STANDARD_ALPHABET Base64._STANDARD_ALPHABET221,11218
+    private final static byte[] _STANDARD_DECODABET Base64._STANDARD_DECODABET239,12227
+    private final static byte[] _URL_SAFE_ALPHABET Base64._URL_SAFE_ALPHABET281,14999
+    private final static byte[] _URL_SAFE_DECODABET Base64._URL_SAFE_DECODABET297,15915
+    private final static byte[] _ORDERED_ALPHABET Base64._ORDERED_ALPHABET344,18805
+    private final static byte[] _ORDERED_DECODABET Base64._ORDERED_DECODABET362,19719
+    private final static byte[] getAlphabet(Base64.getAlphabet411,22724
+    private final static byte[] getDecodabet(Base64.getDecodabet429,23361
+    private Base64(Base64.Base64442,23738
+    private static byte[] encode3to4(Base64.encode3to4465,24540
+    private static byte[] encode3to4(Base64.encode3to4494,25889
+    public static void encode(Base64.encode556,28734
+    public static void encode(Base64.encode580,29539
+    public static String encodeBytes(Base64.encodeBytes713,34426
+    public static String encodeBytes(Base64.encodeBytes781,37059
+    public static byte[] encodeBytesToBytes(Base64.encodeBytesToBytes856,39910
+    private static int decode4to3(Base64.decode4to31029,47008
+    throws java.io.IOException,Base64.IOException1314,59335
+    throws java.io.IOException,Base64.IOException1337,60342
+    public static class InputStream Base64.InputStream1640,71425
+        private boolean encode;Base64.InputStream.encode1642,71506
+        private int     position;Base64.InputStream.position1643,71570
+        private byte[]  buffer;Base64.InputStream.buffer1644,71644
+        private int     bufferLength;Base64.InputStream.bufferLength1645,71723
+        private int     numSigBytes;Base64.InputStream.numSigBytes1646,71792
+        private int     lineLength;Base64.InputStream.lineLength1647,71876
+        private boolean breakLines;Base64.InputStream.breakLines1648,71912
+        private int     options;Base64.InputStream.options1649,71994
+        private byte[]  decodabet;Base64.InputStream.decodabet1650,72079
+        public InputStream(Base64.InputStream.InputStream1659,72384
+        public InputStream(Base64.InputStream.InputStream1684,73234
+    public static class OutputStream Base64.OutputStream1853,79454
+        private boolean encode;Base64.OutputStream.encode1855,79537
+        private int     position;Base64.OutputStream.position1856,79569
+        private byte[]  buffer;Base64.OutputStream.buffer1857,79603
+        private int     bufferLength;Base64.OutputStream.bufferLength1858,79635
+        private int     lineLength;Base64.OutputStream.lineLength1859,79673
+        private boolean breakLines;Base64.OutputStream.breakLines1860,79709
+        private byte[]  b4;Base64.OutputStream.b41861,79745
+        private boolean suspendEncoding;Base64.OutputStream.suspendEncoding1862,79813
+        private int     options;Base64.OutputStream.options1863,79854
+        private byte[]  decodabet;Base64.OutputStream.decodabet1864,79910
+        public OutputStream(Base64.OutputStream.OutputStream1872,80211
+        public OutputStream(Base64.OutputStream.OutputStream1896,81072
+        public void resumeEncoding(Base64.OutputStream.resumeEncoding2055,86709
+
+BBImage.java,603
+public class BBImage 19,469
+	ByteBuffer image;BBImage.image20,492
+	int width;BBImage.width21,511
+	int height;BBImage.height22,523
+	static int count BBImage.count23,536
+	BBImage(BBImage.BBImage25,561
+	void free(BBImage.free33,778
+	private Bitmap toBitmap(BBImage.toBitmap39,909
+    public File save(BBImage.save47,1180
+    void save(BBImage.save56,1481
+    int getWidth(BBImage.getWidth64,1676
+    int getHeight(BBImage.getHeight65,1713
+    void getPixels(BBImage.getPixels66,1752
+    void drawRects(BBImage.drawRects70,1854
+    ByteBuffer getBuffer(BBImage.getBuffer87,2307
+
+BitmapComparator.java,814
+public class BitmapComparator 10,164
+    private ACInstrumentation inst;BitmapComparator.inst11,196
+    private BBImage image;BitmapComparator.image12,232
+    File beforeFile;BitmapComparator.beforeFile13,259
+    File afterFile;BitmapComparator.afterFile14,280
+    boolean careAbout(BitmapComparator.careAbout16,305
+    BitmapComparator(BitmapComparator.BitmapComparator20,454
+    boolean compareWithCurrentView(BitmapComparator.compareWithCurrentView32,769
+    void recycle(BitmapComparator.recycle69,1802
+    final int dx[BitmapComparator.dx76,1907
+    final int dy[BitmapComparator.dy77,1943
+    class SizeChanged BitmapComparator.SizeChanged79,1984
+    boolean compareBitmap(BitmapComparator.compareBitmap81,2082
+    boolean compareBitmapOld(BitmapComparator.compareBitmapOld95,2625
+
+ByteBufferHelper.java,122
+class ByteBufferHelper8,149
+    static ByteBuffer createNativeFromBitmap(ByteBufferHelper.createNativeFromBitmap10,174
+
+CheckerException.java,346
+public class CheckerException 3,36
+	private static final long serialVersionUID CheckerException.serialVersionUID4,89
+	CheckerException(CheckerException.CheckerException5,139
+class CheckerWarning 10,242
+	private static final long serialVersionUID CheckerWarning.serialVersionUID11,286
+	CheckerWarning(CheckerWarning.CheckerWarning12,336
+
+Checker.java,5511
+public abstract class Checker 37,1066
+    Context context;Checker.context38,1098
+    void checkView(Checker.checkView39,1119
+    void check(Checker.check40,1170
+    protected int getViewHash(Checker.getViewHash41,1207
+    void reset(Checker.reset42,1262
+    void rotate(Checker.rotate43,1282
+    void recycle(Checker.recycle44,1303
+    static HashMap<Checker.HashMap46,1326
+    static HashMap<String, Checker> viewCheckers Checker.viewCheckers46,1326
+    static HashMap<Checker.HashMap47,1409
+    static HashMap<String, Checker> generalCheckers Checker.generalCheckers47,1409
+    static HashMap<Checker.HashMap48,1495
+    static HashMap<String, Checker> orientationCheckers Checker.orientationCheckers48,1495
+    static String addChecker(Checker.addChecker49,1585
+    static String addChecker(Checker.addChecker62,1967
+    static String removeChecker(Checker.removeChecker80,2480
+    static String addViewChecker(Checker.addViewChecker101,3070
+    static String addViewChecker(Checker.addViewChecker105,3172
+    static String addGeneralChecker(Checker.addGeneralChecker109,3269
+    static String addGeneralChecker(Checker.addGeneralChecker113,3377
+    static String addOrientationChecker(Checker.addOrientationChecker117,3480
+    static String addOrientationChecker(Checker.addOrientationChecker121,3596
+    static String removeViewChecker(Checker.removeViewChecker125,3707
+    static String removeGeneralChecker(Checker.removeGeneralChecker129,3815
+    static String removeOrientationChecker(Checker.removeOrientationChecker133,3929
+    static void checkEveryView(Checker.checkEveryView149,4661
+    static int getViewHashFromAllCheckers(Checker.getViewHashFromAllCheckers153,4813
+    private static int checkEveryViewInternal(Checker.checkEveryViewInternal157,4967
+class TextSizeChecker 178,5864
+    void checkView(TextSizeChecker.checkView180,5918
+    protected int getViewHash(TextSizeChecker.getViewHash210,7169
+class TextColorChecker 215,7361
+    static final double CONTRAST_MIN_DIST TextColorChecker.CONTRAST_MIN_DIST216,7402
+    static final int RANDOM_PI_COUNT TextColorChecker.RANDOM_PI_COUNT217,7450
+    BBImage backImage;TextColorChecker.backImage218,7493
+    class Invisible TextColorChecker.Invisible219,7516
+    int getBackColor(TextColorChecker.getBackColor222,7619
+    void checkView(TextColorChecker.checkView326,12420
+    protected int getViewHash(TextColorChecker.getViewHash368,14353
+class CheckerRunnable 373,14506
+    ACInstrumentation inst;CheckerRunnable.inst374,14550
+    Exception exception;CheckerRunnable.exception375,14578
+    CheckerRunnable(CheckerRunnable.CheckerRunnable376,14603
+    boolean gotException(CheckerRunnable.gotException380,14686
+    Exception getException(CheckerRunnable.getException383,14757
+    public void run(CheckerRunnable.run387,14834
+abstract class DelayedRunnable 428,16393
+    Exception exception;DelayedRunnable.exception429,16446
+    DelayedRunnable(DelayedRunnable.DelayedRunnable430,16471
+    public Exception getException(DelayedRunnable.getException433,16527
+class InputConnectionChecker 438,16600
+    void checkView(InputConnectionChecker.checkView440,16661
+class LogcatChecker 459,17668
+    private static class Worker LogcatChecker.Worker460,17706
+        Vector<String> lines;LogcatChecker.Worker.lines461,17755
+        Process process;LogcatChecker.Worker.process462,17785
+        boolean error;LogcatChecker.Worker.error463,17810
+        int count;LogcatChecker.Worker.count464,17833
+        int totCount;LogcatChecker.Worker.totCount465,17852
+        private Worker(LogcatChecker.Worker.Worker466,17874
+        public void run(LogcatChecker.Worker.run473,18057
+    void check(LogcatChecker.check524,20402
+class OrientationChecker 561,21712
+    SparseArray<Set<String>> values;OrientationChecker.values562,21755
+    BBImage before;OrientationChecker.before563,21792
+    boolean rotated;OrientationChecker.rotated564,21812
+    void beforeOrientationChange(OrientationChecker.beforeOrientationChange565,21833
+    void afterOrientationChange(OrientationChecker.afterOrientationChange581,22454
+    void checkView(OrientationChecker.checkView614,23930
+    OrientationChecker(OrientationChecker.OrientationChecker620,24104
+    void reset(OrientationChecker.reset626,24248
+    void rotate(OrientationChecker.rotate637,24543
+    void recycle(OrientationChecker.recycle641,24607
+class TextOverlapChecker 647,24677
+    Set<Rect> rects;TextOverlapChecker.rects648,24720
+    void reset(TextOverlapChecker.reset650,24755
+    void checkView(TextOverlapChecker.checkView654,24831
+    protected int getViewHash(TextOverlapChecker.getViewHash710,26959
+    class RectXIntervalFetcher TextOverlapChecker.RectXIntervalFetcher714,27149
+        int start(TextOverlapChecker.RectXIntervalFetcher.start716,27243
+        int end(TextOverlapChecker.RectXIntervalFetcher.end718,27310
+    class RectYIntervalFetcher TextOverlapChecker.RectYIntervalFetcher720,27364
+        int start(TextOverlapChecker.RectYIntervalFetcher.start722,27458
+        int end(TextOverlapChecker.RectYIntervalFetcher.end724,27524
+class LifeCycleChecker 728,27582
+	ACInstrumentation inst;LifeCycleChecker.inst729,27623
+	BitmapComparator bc;LifeCycleChecker.bc730,27648
+	LifeCycleChecker(LifeCycleChecker.LifeCycleChecker732,27672
+	void before(LifeCycleChecker.before735,27739
+	void after(LifeCycleChecker.after739,27868
+
+IntervalTree.java,517
+public class IntervalTree<IntervalTree3,36
+	BalancedTree<T> tree;IntervalTree.tree4,67
+	IntervalFetcher<T> fetch;IntervalTree.fetch5,90
+	public IntervalTree(IntervalTree.IntervalTree6,117
+	public void insert(IntervalTree.insert10,226
+	public boolean findOverlap(IntervalTree.findOverlap14,277
+	public static abstract class IntervalFetcher<IntervalTree.IntervalFetcher29,752
+		boolean overlap(IntervalTree.IntervalFetcher.overlap32,894
+		public int compare(IntervalTree.IntervalFetcher.compare36,997
+
+MainUI.java,199
+public class MainUI 9,227
+    protected void onCreate(MainUI.onCreate11,280
+    public static int mPublic MainUI.mPublic21,567
+    private OnClickListener mGoListener MainUI.mGoListener23,603
+
+MonkeyRunnerGenerator.java,1166
+public class MonkeyRunnerGenerator 7,123
+    public final String DOWN MonkeyRunnerGenerator.DOWN8,160
+    public final String UP MonkeyRunnerGenerator.UP9,199
+    public final String DOWN_AND_UP MonkeyRunnerGenerator.DOWN_AND_UP10,234
+    public MonkeyRunnerGenerator(MonkeyRunnerGenerator.MonkeyRunnerGenerator12,288
+    public void writeHeader(MonkeyRunnerGenerator.writeHeader20,510
+    public void startActivity(MonkeyRunnerGenerator.startActivity32,1009
+    public void startActivity(MonkeyRunnerGenerator.startActivity36,1135
+    public void press(MonkeyRunnerGenerator.press40,1394
+    public void press(MonkeyRunnerGenerator.press44,1487
+    public void touch(MonkeyRunnerGenerator.touch48,1669
+    public void touch(MonkeyRunnerGenerator.touch52,1757
+    public void drag(MonkeyRunnerGenerator.drag56,1936
+    public void type(MonkeyRunnerGenerator.type88,3841
+    public void sleep(MonkeyRunnerGenerator.sleep92,4009
+    public void prompt(MonkeyRunnerGenerator.prompt96,4087
+    public void writeCommand(MonkeyRunnerGenerator.writeCommand100,4255
+    private BufferedWriter mScript;MonkeyRunnerGenerator.mScript110,4556
+
+NativeHelper.java,103
+class NativeHelper6,97
+    public static void initNativeLibrary(NativeHelper.initNativeLibrary8,118
+
+Operation.java,13236
+public abstract class Operation 21,527
+    ACInstrumentation instrumenter;Operation.instrumenter22,561
+    MonkeyRunnerGenerator monkeyRunnerGenerator;Operation.monkeyRunnerGenerator23,597
+    Operation(Operation.Operation24,646
+    Vector<Operation> future;Operation.future29,843
+    protected void writeMonkeyRunnerCommand(Operation.writeMonkeyRunnerCommand31,937
+    public String toString(Operation.toString33,1000
+    String getViewDesc(Operation.getViewDesc36,1085
+    protected void doInFuture(Operation.doInFuture48,1490
+    void readHints(Operation.readHints54,1641
+class ExceptionRunnable 73,2376
+    interface Target ExceptionRunnable.Target74,2422
+    Exception exc ExceptionRunnable.exc77,2495
+    Target target;ExceptionRunnable.target78,2521
+    ExceptionRunnable(ExceptionRunnable.ExceptionRunnable79,2540
+    public void run(ExceptionRunnable.run83,2614
+    Exception getException(ExceptionRunnable.getException91,2748
+abstract class MainOp 94,2796
+    MainOp(MainOp.MainOp95,2838
+    public void doIt(MainOp.doIt99,2972
+abstract class InstOp 125,3706
+    InstOp(InstOp.InstOp126,3748
+    public void doIt(InstOp.doIt130,3882
+class SleepOp 145,4266
+    int ms;SleepOp.ms146,4300
+    SleepOp(SleepOp.SleepOp147,4312
+    public void doIt(SleepOp.doIt152,4424
+    protected void writeMonkeyRunnerCommand(SleepOp.writeMonkeyRunnerCommand160,4646
+class ClickOp 165,4744
+    View target ClickOp.target166,4775
+    ClickOp(ClickOp.ClickOp168,4804
+    void click(ClickOp.click173,4935
+    public void doInMain(ClickOp.doInMain183,5351
+    public String toString(ClickOp.toString188,5422
+    protected void writeMonkeyRunnerCommand(ClickOp.writeMonkeyRunnerCommand193,5551
+class LongClickOp 202,5851
+    View target LongClickOp.target203,5886
+    boolean sendClick LongClickOp.sendClick204,5910
+    LongClickOp(LongClickOp.LongClickOp206,5945
+    void longClick(LongClickOp.longClick212,6135
+    public void doInMain(LongClickOp.doInMain235,7004
+    public String toString(LongClickOp.toString240,7079
+    protected void writeMonkeyRunnerCommand(LongClickOp.writeMonkeyRunnerCommand245,7232
+class GetLocationRunnable 255,7614
+    int pos_x,GetLocationRunnable.pos_x256,7662
+    int pos_x, pos_y;GetLocationRunnable.pos_y256,7662
+    int width,GetLocationRunnable.width257,7684
+    int width, height;GetLocationRunnable.height257,7684
+    int paddingLeft,GetLocationRunnable.paddingLeft258,7707
+    int paddingLeft, paddingRight;GetLocationRunnable.paddingRight258,7707
+    boolean visible;GetLocationRunnable.visible259,7742
+    View target;GetLocationRunnable.target260,7763
+    GetLocationRunnable(GetLocationRunnable.GetLocationRunnable261,7780
+    public void run(GetLocationRunnable.run265,7869
+class PointerClickOp 281,8340
+    View target PointerClickOp.target282,8378
+    PointerClickOp(PointerClickOp.PointerClickOp284,8407
+    void click(PointerClickOp.click289,8545
+    public void doInInst(PointerClickOp.doInInst302,9095
+    public String toString(PointerClickOp.toString307,9166
+    protected void writeMonkeyRunnerCommand(PointerClickOp.writeMonkeyRunnerCommand312,9302
+class PointerLongClickOp 321,9602
+    View target PointerLongClickOp.target322,9644
+    PointerLongClickOp(PointerLongClickOp.PointerLongClickOp324,9673
+    void longClick(PointerLongClickOp.longClick329,9815
+    public void doInInst(PointerLongClickOp.doInInst345,10466
+    public String toString(PointerLongClickOp.toString350,10541
+    protected void writeMonkeyRunnerCommand(PointerLongClickOp.writeMonkeyRunnerCommand355,10681
+class KeyPressOp 365,11063
+    int keyCode KeyPressOp.keyCode366,11097
+    KeyPressOp(KeyPressOp.KeyPressOp367,11118
+    public void doInInst(KeyPressOp.doInInst373,11268
+    public String toString(KeyPressOp.toString379,11478
+    protected void writeMonkeyRunnerCommand(KeyPressOp.writeMonkeyRunnerCommand384,11596
+    private String getKeyCodeString(KeyPressOp.getKeyCodeString388,11743
+class RealMoveSeekBarOp 406,12310
+    AbsSeekBar target RealMoveSeekBarOp.target407,12351
+    int targetVal RealMoveSeekBarOp.targetVal408,12381
+    int touchX RealMoveSeekBarOp.touchX409,12405
+    RealMoveSeekBarOp(RealMoveSeekBarOp.RealMoveSeekBarOp410,12434
+    RealMoveSeekBarOp(RealMoveSeekBarOp.RealMoveSeekBarOp414,12586
+    public void doInInst(RealMoveSeekBarOp.doInInst419,12768
+    protected void writeMonkeyRunnerCommand(RealMoveSeekBarOp.writeMonkeyRunnerCommand428,13174
+    private void prepareTargetVal(RealMoveSeekBarOp.prepareTargetVal437,13572
+class MoveSeekBarOp 453,14175
+    AbsSeekBar target MoveSeekBarOp.target454,14212
+    int targetVal MoveSeekBarOp.targetVal455,14242
+    int touchX MoveSeekBarOp.touchX456,14266
+    MoveSeekBarOp(MoveSeekBarOp.MoveSeekBarOp457,14295
+    MoveSeekBarOp(MoveSeekBarOp.MoveSeekBarOp461,14443
+    public void doInMain(MoveSeekBarOp.doInMain466,14621
+    protected void writeMonkeyRunnerCommand(MoveSeekBarOp.writeMonkeyRunnerCommand485,15270
+    private void prepareTargetVal(MoveSeekBarOp.prepareTargetVal494,15668
+class RealSetNumberPickerOp 510,16271
+    NumberPicker target RealSetNumberPickerOp.target511,16316
+    int targetVal RealSetNumberPickerOp.targetVal512,16348
+    boolean hasTarget RealSetNumberPickerOp.hasTarget513,16372
+    RealSetNumberPickerOp(RealSetNumberPickerOp.RealSetNumberPickerOp514,16403
+    RealSetNumberPickerOp(RealSetNumberPickerOp.RealSetNumberPickerOp519,16593
+    public void doInInst(RealSetNumberPickerOp.doInInst525,16810
+    protected void writeMonkeyRunnerCommand(RealSetNumberPickerOp.writeMonkeyRunnerCommand546,17986
+    private void prepareTargetVal(RealSetNumberPickerOp.prepareTargetVal564,18891
+class SetNumberPickerOp 575,19212
+    NumberPicker target SetNumberPickerOp.target576,19253
+    int targetVal SetNumberPickerOp.targetVal577,19285
+    boolean hasTarget SetNumberPickerOp.hasTarget578,19309
+    SetNumberPickerOp(SetNumberPickerOp.SetNumberPickerOp579,19340
+    SetNumberPickerOp(SetNumberPickerOp.SetNumberPickerOp584,19526
+    public void doInMain(SetNumberPickerOp.doInMain590,19739
+    protected void writeMonkeyRunnerCommand(SetNumberPickerOp.writeMonkeyRunnerCommand596,19853
+    private void prepareTargetVal(SetNumberPickerOp.prepareTargetVal614,20758
+abstract class EditTextContent 626,21080
+class ConstEditTextContent 630,21157
+    String content;ConstEditTextContent.content631,21210
+    ConstEditTextContent(ConstEditTextContent.ConstEditTextContent632,21230
+    public String getContent(ConstEditTextContent.getContent637,21326
+class ConstMultiEditTextContent 640,21380
+    String[] contents;ConstMultiEditTextContent.contents641,21438
+    ConstMultiEditTextContent(ConstMultiEditTextContent.ConstMultiEditTextContent642,21461
+    public String getContent(ConstMultiEditTextContent.getContent647,21567
+class NumberContent 652,21695
+    String[] numbers NumberContent.numbers653,21741
+    boolean decimal,NumberContent.decimal654,21810
+    boolean decimal, signed;NumberContent.signed654,21810
+    NumberContent(NumberContent.NumberContent655,21839
+    public String getContent(NumberContent.getContent660,21974
+class EmailContent 678,22539
+    String[] emails EmailContent.emails679,22584
+    public String getContent(EmailContent.getContent681,22706
+class UrlEditTextContent 687,22859
+    String[] validUrls UrlEditTextContent.validUrls688,22910
+    String[] invalidUrls UrlEditTextContent.invalidUrls698,23524
+    public String getContent(UrlEditTextContent.getContent707,23939
+class ValidUrlEditTextContent 716,24234
+    public String getContent(ValidUrlEditTextContent.getContent718,24307
+class EnterTextOp 724,24466
+    EditText target EnterTextOp.target725,24501
+    String content EnterTextOp.content726,24529
+    EnterTextOp(EnterTextOp.EnterTextOp727,24556
+    EnterTextOp(EnterTextOp.EnterTextOp731,24700
+    public void doInInst(EnterTextOp.doInInst736,24873
+    public String toString(EnterTextOp.toString761,25911
+    protected void writeMonkeyRunnerCommand(EnterTextOp.writeMonkeyRunnerCommand770,26203
+    private void prepareContent(EnterTextOp.prepareContent774,26325
+class SetEditTextOp 798,27431
+    EditText target SetEditTextOp.target799,27468
+    String content SetEditTextOp.content800,27496
+    SetEditTextOp(SetEditTextOp.SetEditTextOp801,27523
+    SetEditTextOp(SetEditTextOp.SetEditTextOp805,27669
+    public void doInMain(SetEditTextOp.doInMain810,27844
+    public String toString(SetEditTextOp.toString816,27983
+    protected void writeMonkeyRunnerCommand(SetEditTextOp.writeMonkeyRunnerCommand825,28279
+    private void prepareContent(SetEditTextOp.prepareContent838,28876
+class ListSelectOp 861,29983
+    ListView target ListSelectOp.target862,30019
+    int item ListSelectOp.item863,30047
+    ListSelectOp(ListSelectOp.ListSelectOp864,30066
+    ListSelectOp(ListSelectOp.ListSelectOp870,30235
+    public void doInMain(ListSelectOp.doInMain875,30397
+    public String toString(ListSelectOp.toString883,30674
+    protected void writeMonkeyRunnerCommand(ListSelectOp.writeMonkeyRunnerCommand891,30971
+class ScrollOneItemRunnable 896,31150
+    ScrollOneItemRunnable(ScrollOneItemRunnable.ScrollOneItemRunnable897,31200
+    public int getDistance(ScrollOneItemRunnable.getDistance902,31318
+    public boolean isFinished(ScrollOneItemRunnable.isFinished906,31381
+    public void run(ScrollOneItemRunnable.run911,31461
+    private ListView target;ScrollOneItemRunnable.target938,32496
+    private int item;ScrollOneItemRunnable.item939,32525
+    private int distance;ScrollOneItemRunnable.distance940,32547
+    private boolean finished ScrollOneItemRunnable.finished941,32573
+class ListScrollOp 944,32614
+    ListView target ListScrollOp.target945,32650
+    int item ListScrollOp.item946,32678
+    ListScrollOp(ListScrollOp.ListScrollOp947,32697
+    ListScrollOp(ListScrollOp.ListScrollOp953,32866
+    public void doInInst(ListScrollOp.doInInst958,33028
+    public String toString(ListScrollOp.toString979,33888
+    protected void writeMonkeyRunnerCommand(ListScrollOp.writeMonkeyRunnerCommand984,34031
+class ForceRotateOp 989,34155
+    ForceRotateOp(ForceRotateOp.ForceRotateOp990,34192
+    public void doInInst(ForceRotateOp.doInInst995,34278
+    public String toString(ForceRotateOp.toString1000,34382
+    protected void writeMonkeyRunnerCommand(ForceRotateOp.writeMonkeyRunnerCommand1005,34466
+class RotateOp 1010,34646
+    RotateOp(RotateOp.RotateOp1011,34678
+    public void doInInst(RotateOp.doInInst1016,34759
+    public String toString(RotateOp.toString1021,34864
+    protected void writeMonkeyRunnerCommand(RotateOp.writeMonkeyRunnerCommand1026,34943
+class RollOp 1031,35123
+    RollOp(RollOp.RollOp1032,35153
+    public void doInMain(RollOp.doInMain1037,35232
+    public String toString(RollOp.toString1042,35330
+    protected void writeMonkeyRunnerCommand(RollOp.writeMonkeyRunnerCommand1047,35407
+class PauseAndResumeOp 1052,35573
+    PauseAndResumeOp(PauseAndResumeOp.PauseAndResumeOp1053,35613
+    public void doInMain(PauseAndResumeOp.doInMain1058,35724
+    public String toString(PauseAndResumeOp.toString1076,36270
+    protected void writeMonkeyRunnerCommand(PauseAndResumeOp.writeMonkeyRunnerCommand1081,36357
+class StopAndRestartOp 1087,36587
+    StopAndRestartOp(StopAndRestartOp.StopAndRestartOp1088,36627
+    public void doInMain(StopAndRestartOp.doInMain1093,36716
+    public String toString(StopAndRestartOp.toString1114,37416
+    protected void writeMonkeyRunnerCommand(StopAndRestartOp.writeMonkeyRunnerCommand1119,37503
+class RelaunchOp 1125,37730
+    private Activity act;RelaunchOp.act1127,37765
+    private LifeCycleChecker lcc RelaunchOp.lcc1128,37791
+    private Exception ex RelaunchOp.ex1129,37832
+    RelaunchOp(RelaunchOp.RelaunchOp1131,37870
+    public void doInInst(RelaunchOp.doInInst1136,37975
+    public String toString(RelaunchOp.toString1210,40924
+    protected void writeMonkeyRunnerCommand(RelaunchOp.writeMonkeyRunnerCommand1215,41005
+class CollectOperationsRunnable 1220,41185
+    Vector<Operation> operations CollectOperationsRunnable.operations1221,41239
+    ACInstrumentation inst;CollectOperationsRunnable.inst1222,41280
+    CollectOperationsRunnable(CollectOperationsRunnable.CollectOperationsRunnable1223,41308
+    class ViewInfo CollectOperationsRunnable.ViewInfo1227,41397
+        boolean inList;CollectOperationsRunnable.ViewInfo.inList1228,41418
+        ViewInfo(CollectOperationsRunnable.ViewInfo.ViewInfo1229,41442
+        boolean inListView(CollectOperationsRunnable.ViewInfo.inListView1233,41522
+    boolean isNotActivityView(CollectOperationsRunnable.isNotActivityView1236,41577
+    public boolean visibleFromRoot(CollectOperationsRunnable.visibleFromRoot1250,41969
+    public boolean visibleFromRoot(CollectOperationsRunnable.visibleFromRoot1256,42191
+    public void run(CollectOperationsRunnable.run1273,42918
+    Vector<Operation> getResult(CollectOperationsRunnable.getResult1437,50971
+
+Utils.java,110
+public class Utils 5,68
+	static double dist(Utils.dist6,89
+	static int blendColor(Utils.blendColor10,255

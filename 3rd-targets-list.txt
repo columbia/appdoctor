@@ -1,0 +1,16 @@
+version="LGE:Real3D Add-On:8",based="Android 2.2",abi="armeabi"
+version="Samsung Electronics Co., Ltd.:GALAXY Tab Addon:8",based="Android 2.2",abi="armeabi",width=1280,height=800,density=149,sdcard=16M,camera="bf"
+version="LGE:Real3D Add-On:10",based="Android 2.3.3",abi="armeabi"
+version="Motorola Mobility, Inc.:Droid4:10",based="Android 2.3.3",abi="armeabi",width=540,height=960,density=275,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:DroidRAZR:10",based="Android 2.3.3",abi="armeabi",width=540,height=960,density=256,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:MT870:10",based="Android 2.3.3",abi="armeabi",width=540,height=960,density=275,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:MT917:10",based="Android 2.3.3",abi="armeabi",width=720,height=1280,density=326,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:XT882:10",based="Android 2.3.3",abi="armeabi",width=540,height=960,density=275,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:XT928:10",based="Android 2.3.3",abi="armeabi",width=720,height=1280,density=326,sdcard=16M,camera="bf"
+version="Motorola Mobility, Inc.:defy+:10",based="Android 2.3.3",abi="armeabi",width=480,height=854,density=264,sdcard=16M,camera="b"
+# problem: disappear from adb after a while
+#version="LGE:Real3D Add-On:14",based="Android 4.0",abi="armeabi-v7a"
+version="Motorola Mobility, Inc.:ICS_R1:15",based="Android 4.0.3",abi="armeabi-v7a"
+version="Motorola Mobility, LLC.:ICS_R2:15",based="Android 4.0.3",abi="armeabi-v7a"
+# problem: disappear from adb after a while
+#version="Sony Corporation:Sony Tablet SDK Add-on:15",based="Android 4.0.3",abi="armeabi-v7a",width=1280,height=800,density=160,sdcard=16M,camera="bf"

@@ -1,0 +1,160 @@
+body { padding: 0px; margin: 0px; font-family: monospace, sans, sans-serif}
+table { empty-cells: show; border-spacing:0; border-collapse:collapse; }
+td { padding: 0px; }
+
+#all-wrapper {
+    position: fixed;
+    top: 0px; 
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    background: white;
+}
+
+#all-wrapper:before { display: inline-block; height: 100%; vertical-align: middle; content: ""; }
+
+#all {
+    /* position: relative; */
+    /* vertical-align: middle; */
+    /* display: inline-block; */
+    /* width: 80%; */
+    /* height: 80%; */
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+
+    background: white;
+    text-align: left;
+}
+
+.loading-indicator
+{
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: url("semi-trans-gray.png");
+}
+
+.loading-indicator.show { display: block; }
+
+.loading-indicator:before
+{
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: url("loading.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    content: "";
+}
+
+#log-list-container
+{
+    position: absolute;
+    top: 0px; left: 0px;
+    height: 50%; 
+    width: 30%;
+}
+
+#bug-list-container
+{
+    position: absolute;
+    bottom: 0px; left: 0px;
+    height: 50%;
+    width: 30%;
+}
+
+#bug-container
+{
+    position: absolute;
+    top: 0px; right: 0px; bottom: 0px;
+    width: 70%;
+}
+
+#log-list-wrapper
+{
+    position: relative;
+    height: 100%;
+}
+
+#log-list 
+{
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow: auto;
+    padding: 3px;
+    border-radius: 5px;
+    background: #444;
+    color: white;
+}
+
+#bug-list-wrapper
+{
+    position: relative;
+    height: 100%;
+}
+
+#bug-list 
+{
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow: auto;
+    padding: 3px;
+    border-radius: 5px;
+    background: #444;
+    color: white;
+}
+
+#bug-wrapper
+{
+    position: relative;
+    height: 100%;
+}
+
+#bug 
+{
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow: auto;
+}
+
+.log-item
+{
+    padding: 2px;
+}
+
+.log-item:hover
+{
+    background: #666;
+    color: white;
+    cursor: pointer;
+}
+
+.bug-item
+{
+    padding: 2px;
+}
+
+.bug-item:hover
+{
+    background: #666;
+    color: white;
+    cursor: pointer;
+}
+
+.bug-logcat {
+    padding: 10px; 
+    white-space: pre;
+    font-size: 9pt;
+}
+
+.attachment-img { display: hide; }
+.txt-box { 
+    white-space: pre;
+    font-size: 9pt;
+    padding: 5px;
+    background: #ddd;
+}

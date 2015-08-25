@@ -1,0 +1,12 @@
+How to setup Web UI
+
+ - checkout the web.py from web
+
+   # git clone git://github.com/webpy/webpy.git
+   # ln -s `pwd`/webpy/web .
+
+ - link the directory that contains the log files to static/logs
+
+ - ./web_ui.py [[address:]port]
+
+ - Enjoy!

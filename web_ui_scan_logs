@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd static; find logs/ -regex '.*/err_.*\.log'

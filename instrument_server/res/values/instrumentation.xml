@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="instrumentation_name">ACInstrumentation</string>
+  <string name="instrumentation_target_activity">org.openintents.shopping.ShoppingActivity</string>
+  <integer name="instrumentation_cmd_server_port">22228</integer>
+</resources>

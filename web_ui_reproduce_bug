@@ -1,0 +1,7 @@
+#!/bin/bash
+
+bugid=$1
+cmdlog=static/$2
+logname=static/$3
+
+xterm -hold -e ./analyze.py replay -i $bugid -c $cmdlog $logname &

@@ -1,0 +1,6 @@
+# format:
+# package=<package>,type=<type>,target=<widget id>,content=<content>
+# for example
+# package=com.dropbox.android,type=edit,target=login_email, content=<account>
+# package=com.dropbox.android,type=edit,target=login_password, content=<password>
+# package=com.dropbox.android,type=btn,target=login_submit,content="sleep:30000"

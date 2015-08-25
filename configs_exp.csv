@@ -1,0 +1,6 @@
+version="Google Inc.:Google APIs:17",ram=512,libs="com.google.android.maps",sdcard=64M
+version=4.2,sdcard=64M,ram=512
+version="Google Inc.:Google APIs:17",ram=512,libs="com.google.android.maps",sdcard=64M,density=120,width=1280,height=800
+version=4.2,sdcard=64M,ram=512,density=120,width=1280,height=800
+version="Google Inc.:Google APIs:10",ram=512,libs="com.google.android.maps",sdcard=64M
+version=2.3,sdcard=64M,ram=512

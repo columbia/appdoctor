@@ -20,28 +20,28 @@ On the controlling host:
 
 Config Files
 ============
-andchecker.keystore: java key storage, used to sign apks
-android_test.conf: test configuration file
-apps.csv: applications to test
-configs.csv: device configurations to test
-hints.csv: hints for text boxes and other widgets
-hosts.txt: hosts to run tests with
-settings.py: some constants for the scripts
+* andchecker.keystore: java key storage, used to sign apks
+* android_test.conf: test configuration file
+* apps.csv: applications to test
+* configs.csv: device configurations to test
+* hints.csv: hints for text boxes and other widgets
+* hosts.txt: hosts to run tests with
+* settings.py: some constants for the scripts
 
 Scripts
 =======
-run.sh: start a test session on specified hosts
-check.sh: start a session on local host
-collect.sh: collect logs from hosts
-list.sh: check for a clean environment
-stop.sh: stop the test session on all the hosts
-analyze.py: analyze logs of test sessions
-reproduce.py: the underlying building block. Can be used to test applications, reproduce bugs or start a console session to run a step-by-step debug session.
-controller.py: the test controller running on each host
+* run.sh: start a test session on specified hosts
+* check.sh: start a session on local host
+* collect.sh: collect logs from hosts
+* list.sh: check for a clean environment
+* stop.sh: stop the test session on all the hosts
+* analyze.py: analyze logs of test sessions
+* reproduce.py: the underlying building block. Can be used to test applications, reproduce bugs or start a console session to run a step-by-step debug session.
+* controller.py: the test controller running on each host
 
 Directories
 ===========
-dynclass/: compile and run custom test commands
-media/: media files to be transferred to the device for testing
-tools/: external tools
-instrument_server/: instrumentation application, run on the device
+* dynclass/: compile and run custom test commands
+* media/: media files to be transferred to the device for testing
+* tools/: external tools
+* instrument_server/: instrumentation application, run on the device

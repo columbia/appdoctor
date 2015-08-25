@@ -7,11 +7,13 @@ Usage
 First:
 * generate a keystore
 * edit the config files to prepare for a test
+
 On the testing hosts:
 * upload AppDoctor to ~/andchecker
 * ensure that Android NDK and SDK are available in the PATH
 * ensure that JDK is in the PATH
 * run tools/get.sh to get external tools
+
 On the controlling host:
 * use scripts to start/stop test sessions
 * use analyze script to analyze logs

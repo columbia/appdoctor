@@ -19,7 +19,7 @@ class APK:
 
     def resign(self, keystore, keystore_pass, keystore_alias):
         subprocess.call("zip -d %s META-INF*" % self.path, shell=True)
-        subprocess.check_call("jarsigner -keystore %s -storepass %s %s %s" % (keystore, keystore_pass, self.path, keystore_alias), shell=True)
+        subprocess.check_call("jarsigner -keystore %s -storepass %s %s -sigalg MD5withRSA -digestalg SHA1 %s " % (keystore, keystore_pass, self.path, keystore_alias), shell=True)
 
     def get_perms(self):
         perms = subprocess.check_output("aapt d permissions %s" % self.path, shell=True)
@@ -48,7 +48,7 @@ class APK:
         workdir = self.tempdir + "/mod"
         output_apk = self.tempdir + "/modified.apk"
 
-        subprocess.check_call("java -jar %s d -s %s %s" % (apktool_path, self.path, workdir), shell = True)
+        subprocess.check_call("java -jar %s d -s %s -o %s" % (apktool_path, self.path, workdir), shell = True)
 #            subprocess.check_call("unzip %s AndroidManifest.xml" % self.path, shell = True)
 #            subprocess.check_call("java -cp axml-0.9.jar:. AddPermission AndroidManifest.xml android.permission.INTERNET", shell = True)
 #            shutil.copy(self.path, "modified.apk")
@@ -74,7 +74,7 @@ class APK:
                     line = f.readline()
         os.remove("%s/AndroidManifest.xml" % workdir)
         shutil.move("%s/AndroidManifest.net.xml" % workdir, "%s/AndroidManifest.xml" % workdir)
-        subprocess.check_call("java -jar %s b %s %s" % (apktool_path, workdir, output_apk), shell = True)
+        subprocess.check_call("java -jar %s b %s -o %s" % (apktool_path, workdir, output_apk), shell = True)
         self.path = output_apk
         try:
             shutil.rmtree(workdir)

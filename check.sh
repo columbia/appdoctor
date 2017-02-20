@@ -1,16 +1,11 @@
 #!/bin/sh
 
-slotnum=12
-jobnum=600
-batch=100
+slotnum=2
+jobnum=1
+batch=3
 depth=100
 
 cd andchecker
-git pull
-if [ $? != 0 ]; then
-    echo "git merge failed. manual fix."
-    exit 1
-fi
 
 rm -f ~/andchecker-stop
 

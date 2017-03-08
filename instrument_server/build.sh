@@ -23,4 +23,4 @@ fi
 
 cp $package_file $target_file
 
-jarsigner -keystore $ANDCHECKER_KEYSTORE -signedjar $target_file -storepass 123456 -sigalg MD5withRSA -digestalg SHA1  $ANDCHECKER_ALIAS
+jarsigner -keystore $ANDCHECKER_KEYSTORE -signedjar $target_file -storepass "andchecker" -sigalg MD5withRSA -digestalg SHA1  $ANDCHECKER_ALIAS

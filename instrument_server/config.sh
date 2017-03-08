@@ -20,12 +20,12 @@ else
 fi
 
 sed -i -e "s/<string name=\"instrumentation_target_activity\">.*<\/string>/<string name=\"instrumentation_target_activity\">$activity<\/string>/" res/values/instrumentation.xml
-rm res/values/instrumentation.xml-e
+rm -f res/values/instrumentation.xml-e
 if [ $? -ne 0 ]; then
     exit $?
 fi
 sed -i -e "s/android:targetPackage=.*/android:targetPackage=\"$package\"/" AndroidManifest.xml
-rm AndroidManifest.xml-e
+rm -f AndroidManifest.xml-e
 if [ $? -ne 0 ]; then
     exit $?
 fi

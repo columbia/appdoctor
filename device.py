@@ -380,8 +380,8 @@ class Device:
         else:
             logger.info("starting avd from arg %s" % avd)
         cmd = 'nice emulator -avd %s -debug-init' % (self.avd_inst if avd is None else avd)
-        #if self.console_mode:
-        #    cmd += " -no-window"
+        if self.console_mode:
+            cmd += " -no-window"
         self.emu = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE, close_fds=True)
         pattern = re.compile(r'emulator: control console listening on port (\d+), ADB on port (\d+)')
         logger.info("waiting for console & emulator port")
